@@ -21,9 +21,9 @@ describe('/GET All Articals', () => {
 describe('/POST artical', () => {
   it('it should valid reqest or not', (done) => {
     const artical = {
-      nickname: "Warren Buffet",
-      content: "Then i will Do it nothing when i scared",
-      title: "Joining Ceremonry"
+      nickname: "Rich Dad Poor Dad",
+      content: "",
+      title: ""
     };
     chai.request(server)
       .post('/api/v1/articals')

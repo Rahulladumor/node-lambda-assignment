@@ -12,6 +12,8 @@
 
   6. Deploy on AWS : `sls deploy --stage {dev/prod} --aws-profile {name}` 
 
+  
   5. for check test cases : go to `test` folder and update `config.js` file with your endpoint url.
 
   6. Run `npm run test`
+

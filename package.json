@@ -11,10 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.7.1",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "rascal": "^13.0.0",
     "sequelize": "^6.5.1",
-    "serverless-http": "^2.7.0"
+    "serverless-http": "^2.7.0",
+    "winston": "^3.3.3",
+    "winston-cloudwatch": "^2.5.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",

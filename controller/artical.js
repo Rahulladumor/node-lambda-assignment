@@ -1,15 +1,32 @@
 const Artical = require('../model/model.artical');
 const db = require('../configs/db.config');
 
+const {
+  enums: {
+    LOG_TYPE: { LOG_TYPE_INFO },
+    API: { ARTICAL },
+  },
+  createLog,
+} = require('../services/audit');
+
 exports.getAll = async (req, res, next) => {
   try {
     await db.authenticate();
     const artical = await Artical.findAll();
-    res.status(200).json({
+    
+    createLog({
+      request: req,
+      response: artical,
+      logLevel: LOG_TYPE_INFO,
+      apiAction: ARTICAL.GET_ALL,
+    }, req.broker);
+    
+    return res.status(200).json({
       success: true,
       count: artical.length,
       data: artical,
     });
+
   } catch (error) {
     console.log('error-> ', error);
     res.send(error)
@@ -23,7 +40,14 @@ exports.getOne = async (req, res, next) => {
     const { id } = req.params;
     const artical = await Artical.findByPk(id);
 
-    res.status(200).json({
+    createLog({
+      request: req,
+      response: artical,
+      logLevel: LOG_TYPE_INFO,
+      apiAction: ARTICAL.GET_ONE,
+    }, req.broker);
+
+    return res.status(200).json({
       success: true,
       count: artical.length,
       data: artical,
@@ -32,7 +56,6 @@ exports.getOne = async (req, res, next) => {
     console.log('error-> ', error);
     res.send(error)
   }
-
 };
 
 exports.createOne = async (req, res, next) => {
@@ -47,7 +70,14 @@ exports.createOne = async (req, res, next) => {
       creation_date
     });
 
-    res.status(200).json({
+    createLog({
+      request: req,
+      response: artical,
+      logLevel: LOG_TYPE_INFO,
+      apiAction: ARTICAL.ADD_ONE,
+    }, req.broker);
+
+    return res.status(200).json({
       success: true,
       count: artical.length,
       data: artical,
@@ -72,7 +102,14 @@ exports.updateOne = async (req, res, next) => {
       creation_date
     }, { where: { id }, returning: true });
 
-    res.status(200).json({
+    createLog({
+      request: req,
+      response: artical,
+      logLevel: LOG_TYPE_INFO,
+      apiAction: ARTICAL.UPDATE_ONE,
+    }, req.broker);
+
+    return res.status(200).json({
       success: true,
       count: artical.length,
       data: artical,
@@ -92,7 +129,15 @@ exports.deleteOne = async (req, res, next) => {
 
     const artical = await Artical.destroy({ where: { id } });
 
-    res.status(200).json({
+    createLog({
+      request: req,
+      response: artical,
+      logLevel: LOG_TYPE_INFO,
+      apiAction: ARTICAL.DELETE_ONE,
+    }, req.broker);
+
+
+    return res.status(200).json({
       success: true,
       count: artical.length,
       data: artical,
