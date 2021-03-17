@@ -1,5 +1,5 @@
-const db = require('../configs/db.config');
 const Artical = require('../model/model.artical');
+const db = require('../configs/db.config');
 
 exports.getAll = async (req, res, next) => {
   try {

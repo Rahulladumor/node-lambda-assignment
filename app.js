@@ -4,17 +4,17 @@ const app = express();
 
 const db = require('./configs/db.config');
 
-app.post('/dbsync', async (req, res) => {
-  const { data } = req.body;
-  if( data === 'Sync' ){
-    await db.sync({ force: true })
-    res.json({ success: true, data: 'Database Synced' })
-  } 
-  if ( data === 'Close') {
-    await db.sync({ force: true })
-    res.json({ success: true, data: 'Close All Connection' })
-  }
-})
+// app.post('/dbsync', async (req, res) => {
+//   const { body } = req;
+//   if( body.data === 'Sync' ){
+//     await db.sync({ force: true })
+//     res.json({ success: true, data: 'Database Synced' })
+//   } 
+//   if ( body.data === 'Close') {
+//     await db.sync({ force: true })
+//     res.json({ success: true, data: 'Close All Connection' })
+//   }
+// })
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
