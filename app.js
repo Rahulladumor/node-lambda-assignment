@@ -4,11 +4,16 @@ const app = express();
 
 const db = require('./configs/db.config');
 
-// db.authenticate().then(() => console.log('Database Connected Successfully...!')).catch((err) => console.log('Error:', err))
-
-app.get('/sync', async (req, res) => {
-  await db.sync({ force: true })
-  res.json({ success: true, data: 'Done Migration' })
+app.post('/dbsync', async (req, res) => {
+  const { data } = req.body;
+  if( data === 'Sync' ){
+    await db.sync({ force: true })
+    res.json({ success: true, data: 'Database Synced' })
+  } 
+  if ( data === 'Close') {
+    await db.sync({ force: true })
+    res.json({ success: true, data: 'Close All Connection' })
+  }
 })
 
 app.use(express.urlencoded({ extended: true }));
