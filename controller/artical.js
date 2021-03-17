@@ -1,12 +1,23 @@
 const Artical = require('../model/model.artical');
+const db = require('../configs/db.config');
+
+// db.authenticate().then(() => console.log('Database Connected Successfully...!')).catch((err) => console.log('Error:', err))
 
 exports.getAll = async (req, res, next) => {
-  const artical = await Artical.findAll();
-  res.status(200).json({
-    success: true,
-    count: artical.length,
-    data: artical,
-  });
+  try {
+    await db.authenticate();
+    const artical = await Artical.findAll();
+    res.status(200).json({
+      success: true,
+      count: artical.length,
+      data: artical,
+    });
+    await db.close()
+  } catch (error) {
+    console.log('error-> ', error);
+    res.send(error)
+  }
+
 };
 
 exports.getOne = async (req, res, next) => {

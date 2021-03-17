@@ -4,10 +4,11 @@ const app = express();
 
 const db = require('./configs/db.config');
 
-db.authenticate().then(() => console.log('Database Connected Successfully...!')).catch((err) => console.log('Error:', err))
+// db.authenticate().then(() => console.log('Database Connected Successfully...!')).catch((err) => console.log('Error:', err))
 
-app.get('/sync', (req, res) => {
-  db.sync({ force: true })
+app.get('/sync', async (req, res) => {
+  await db.sync({ force: true })
+  res.json({ success: true, data: 'Done Migration' })
 })
 
 app.use(express.urlencoded({ extended: true }));
