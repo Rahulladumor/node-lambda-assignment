@@ -124,14 +124,14 @@ exports.updateOne = async (req, res, next) => {
     await db.authenticate();
     const { id } = req.params;
     const { nickname, content, articalId, creation_date } = req.body;
-
+  
     const comment = await Comments.update({
       nickname,
       content,
       articalId,
       creation_date
     }, { where: { id }, returning: true });
-
+  
     res.status(200).json({
       success: true,
       count: comment.length,
@@ -140,5 +140,21 @@ exports.updateOne = async (req, res, next) => {
   } catch (err) {
     res.send(err)
   }
+};
 
+exports.deleteOne = async (req, res, next) => {
+  try {
+    await db.authenticate();
+    const { id } = req.params;
+  
+    const comment = await Comments.destroy({ where: { id } });
+  
+    res.status(200).json({
+      success: true,
+      count: comment.length,
+      data: comment,
+    });
+  } catch (err) {
+    res.send(err)
+  }
 };
