@@ -33,7 +33,7 @@ const logGroupName = 'blogApisGroup';
 
 const serverRegion = 'us-east-1';
 
-const awsAccessKeyId = 'AKIATVU3J4PE7XKB43VM'
-const awsSecretKey = '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';
+const awsAccessKeyId = ''
+const awsSecretKey = '';
 
 module.exports = {rabbitConfig, logGroupName, serverRegion, awsAccessKeyId, awsSecretKey};
