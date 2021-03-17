@@ -1,10 +1,14 @@
-service: sample-app
+service: node-lambda-assignment
+
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
   memorySize: 128
+  apiGateway:
+    shouldStartNameWithService: true
+
 functions:
   app:
     handler: app/app.handler
