@@ -10,4 +10,8 @@
 
   4. go to `configs` folder update `db.config.js` with your remote MySQL credentials.
 
-  5. Deploy on AWS : `sls deploy --stage {dev/prod} --aws-profile {name}` 
+  6. Deploy on AWS : `sls deploy --stage {dev/prod} --aws-profile {name}` 
+
+  5. for check test cases : go to `test` folder and update `config.js` file with your endpoint url.
+
+  6. Run `npm run test`
