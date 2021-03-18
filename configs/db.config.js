@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
 
-const HOST = 'remotemysql.com';
-const USER = 'vPgBXqk5jt';
-const PASSWORD = 'kiuS2Aehym';
-const DATABASE = 'vPgBXqk5jt';
+const HOST = '';
+const USER = '';
+const PASSWORD = '';
+const DATABASE = '';
 
 module.exports = new Sequelize(DATABASE, USER, PASSWORD, {
   host: HOST,

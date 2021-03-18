@@ -10,7 +10,9 @@
 
   4. go to `configs` folder update `db.config.js` with your remote MySQL credentials.
 
-  5. Deploy on AWS : `sls deploy --stage {dev/prod} --aws-profile {name}` 
+  5. update `configs/config.js` file with your rabbitmq credentials.
 
-  6. for Sync DB API: `{api-gateway-endpoint}/sync`
+  6. Deploy on AWS : `sls deploy --stage {dev/prod} --aws-profile {name}` 
+
+  7. for Sync DB API: `{api-gateway-endpoint}/sync`
 

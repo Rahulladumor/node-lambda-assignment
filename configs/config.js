@@ -2,7 +2,7 @@ const rabbitConfig = {
   vhosts: {
     '/': {
       connection: {
-        url: `amqps://xyvfvfzw:9ojRvTuP_CJww4iszCLd5Wqh-3QSbuw7@owl.rmq.cloudamqp.com/xyvfvfzw`,
+        url: ``,
       },
       exchanges: [
         'auditlog_ex',
@@ -29,11 +29,11 @@ const rabbitConfig = {
   },
 };
 
-const logGroupName = 'blogapplication';
+const logGroupName = '';
 
-const serverRegion = 'us-east-1';
+const serverRegion = '';
 
-const awsAccessKeyId = 'AKIATVU3J4PE7XKB43VM'
-const awsSecretKey = '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';
+const awsAccessKeyId = ''
+const awsSecretKey = '';
 
 module.exports = {rabbitConfig, logGroupName, serverRegion, awsAccessKeyId, awsSecretKey};
