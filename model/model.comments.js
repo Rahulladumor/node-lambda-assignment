@@ -29,7 +29,7 @@ module.exports = Comments;
 
 Comments.belongsTo(Articals, {
   foreignKey: 'articalId',
-  targetKey: 'id'
+  targetKey: 'id',
 })
 
 Articals.hasMany(Comments, {

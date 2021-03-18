@@ -13,14 +13,14 @@ exports.getAll = async (req, res, next) => {
   try {
     await db.authenticate();
     const artical = await Artical.findAll();
-    
+
     createLog({
       request: req,
       response: artical,
       logLevel: LOG_TYPE_INFO,
       apiAction: ARTICAL.GET_ALL,
     }, req.broker);
-    
+
     return res.status(200).json({
       success: true,
       count: artical.length,

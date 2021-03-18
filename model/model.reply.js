@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../configs/db.config');
+
 const Comments = require('./model.comments');
 
 const Reply = db.define('reply', {

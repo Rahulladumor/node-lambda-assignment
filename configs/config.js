@@ -29,11 +29,11 @@ const rabbitConfig = {
   },
 };
 
-const logGroupName = 'blogApisGroup';
+const logGroupName = 'blogapplication';
 
 const serverRegion = 'us-east-1';
 
-const awsAccessKeyId = ''
-const awsSecretKey = '';
+const awsAccessKeyId = 'AKIATVU3J4PE7XKB43VM'
+const awsSecretKey = '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';
 
 module.exports = {rabbitConfig, logGroupName, serverRegion, awsAccessKeyId, awsSecretKey};
