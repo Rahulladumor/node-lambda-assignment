@@ -32,4 +32,3 @@ app.use('/api/v1/articals', require('./routes/artical'));
 app.use('/api/v1/comments', require('./routes/comments'));
 
 module.exports.handler = serverless(app);
-app.listen(5000, () => console.log('Running ..!'))
